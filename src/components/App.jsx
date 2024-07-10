@@ -3,9 +3,8 @@ import { ErrorMessage } from './ErrorMessage/ErrorMessage';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { SearchBar } from './SearchBar/SearchBar';
 import { Button } from './UI/Button/Buttonstyled';
-import { Container } from './UI/Conteiner/Conteiner.styled';
+import { ConteinerSection } from './UI/ConteinerSection/ConteinerSection.styled';
 import { Loader } from './UI/Loader/Loader';
-import { Section } from './UI/Section/Section.styled';
 import toast from 'react-hot-toast';
 import { fetchImage } from '../api';
 
@@ -48,14 +47,12 @@ export const App = () => {
   return (
     <>
       <SearchBar onQuery={setQuery} />
-      <Container>
-        <Section>
-          {imageList.length > 0 && <ImageGallery />}
-          {status === STATUS_PAGE.error && <ErrorMessage />}
-          {status === STATUS_PAGE.loadMore && <Button type="button">Load more</Button>}
-          {status === STATUS_PAGE.load && <Loader />}
-        </Section>
-      </Container>
+      <ConteinerSection>
+        {imageList.length > 0 && <ImageGallery />}
+        {status === STATUS_PAGE.error && <ErrorMessage />}
+        {status === STATUS_PAGE.loadMore && <Button type="button">Load more</Button>}
+        {status === STATUS_PAGE.load && <Loader />}
+      </ConteinerSection>
     </>
   );
 };
