@@ -25,6 +25,8 @@ export const App = () => {
   const [status, setStatus] = useState();
 
   useEffect(() => {
+    if (query === '') return;
+
     const searchQyery = async (q, p) => {
       setStatus(STATUS_PAGE.load);
 
@@ -39,8 +41,6 @@ export const App = () => {
         toast.error(error);
       }
     };
-
-    if (query === '') return;
 
     searchQyery(query, page);
   }, [query, page]);
