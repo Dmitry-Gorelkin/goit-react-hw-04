@@ -8,6 +8,7 @@ import { Loader } from './UI/Loader/Loader';
 import toast from 'react-hot-toast';
 import { fetchImage } from '../api';
 import { BackToTop } from './UI/BackToTop/BackToTop';
+import { NoImage } from './NoImage/NoImage';
 
 const PER_PAGE = 12;
 
@@ -15,6 +16,7 @@ const STATUS_PAGE = {
   ideal: 'ideal',
   load: 'load',
   error: 'error',
+  noimage: 'noImage',
   loadMore: 'loadMore',
 };
 
@@ -44,9 +46,15 @@ export const App = () => {
 
       try {
         const data = await fetchImage(q, p, PER_PAGE);
-        setImageList(prev => [...prev, ...data.hits]);
+
+        if (data.total === 0) {
+          setStatus(STATUS_PAGE.noimage);
+          return;
+        }
 
         const totalPage = Math.ceil(data.total / PER_PAGE);
+
+        setImageList(prev => [...prev, ...data.hits]);
 
         page < totalPage ? setStatus(STATUS_PAGE.loadMore) : setStatus(STATUS_PAGE.ideal);
       } catch (error) {
@@ -63,6 +71,7 @@ export const App = () => {
       <SearchBar onQuery={handlQuery} value={query} />
       <ConteinerSection>
         {imageList.length > 0 && <ImageGallery arrImage={imageList} />}
+        {status === STATUS_PAGE.noimage && <NoImage />}
         {status === STATUS_PAGE.error && <ErrorMessage />}
         {status === STATUS_PAGE.loadMore && (
           <Button type="button" onClick={nextPage}>
