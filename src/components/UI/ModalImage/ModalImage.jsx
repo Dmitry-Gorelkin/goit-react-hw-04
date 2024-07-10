@@ -15,6 +15,7 @@ const customStyles = {
     borderRadius: '8px',
     border: 'none',
     padding: '0px',
+    maxWidth: '85vw',
     zIndex: 11,
   },
 };
