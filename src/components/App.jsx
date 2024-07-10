@@ -51,7 +51,7 @@ export const App = () => {
       <Container>
         <Section>
           {imageList.length > 0 && <ImageGallery />}
-          {status === STATUS_PAGE.load && <ErrorMessage />}
+          {status === STATUS_PAGE.error && <ErrorMessage />}
           {status === STATUS_PAGE.loadMore && <Button type="button">Load more</Button>}
           {status === STATUS_PAGE.load && <Loader />}
         </Section>
