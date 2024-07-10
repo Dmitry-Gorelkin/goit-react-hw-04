@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const SearchBarBox = styled.div`
-  background-color: ${p => p.theme.colors.backgroundSecondary};
-`;
-
 export const SearchBarContainer = styled.div`
   display: block;
+
+  margin: 0px auto;
+
+  padding: 5vw;
 
   width: 100%;
 
@@ -15,5 +15,12 @@ export const SearchBarContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 30px;
+  }
+
+  @media screen and (min-width: 1440px) {
   }
 `;
