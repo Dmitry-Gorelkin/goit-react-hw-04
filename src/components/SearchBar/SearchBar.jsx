@@ -3,7 +3,7 @@ import { SearchBarContainer } from './SearchBar.styled';
 import { CiSearch } from 'react-icons/ci';
 import toast from 'react-hot-toast';
 
-export const SearchBar = ({ onQuery }) => {
+export const SearchBar = ({ onQuery, value }) => {
   const handlSubmit = e => {
     e.preventDefault();
 
@@ -14,7 +14,10 @@ export const SearchBar = ({ onQuery }) => {
       return;
     }
 
-    console.log(query);
+    if (value === query) {
+      toast.error('You are trying to find this word again, perhaps you could try another one?');
+      return;
+    }
 
     onQuery(query);
   };

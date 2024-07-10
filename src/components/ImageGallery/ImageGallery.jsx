@@ -1,10 +1,12 @@
-export const ImageGallery = () => {
+import { ImageCard } from '../ImageCard/ImageCard';
+import { ImageGalleryList } from './ImageGallery.styled';
+
+export const ImageGallery = ({ arrImage }) => {
   return (
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-    </ul>
+    <ImageGalleryList>
+      {arrImage.map(({ id, webformatURL, tags }) => (
+        <ImageCard key={id} src={webformatURL} alt={tags} />
+      ))}
+    </ImageGalleryList>
   );
 };
