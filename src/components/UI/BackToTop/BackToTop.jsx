@@ -15,6 +15,7 @@ export const BackToTop = () => {
         alignItems: 'center',
         borderRadius: '8px',
         boxShadow: '0 0 8px #2B3A67',
+        zIndex: 2,
       }}
       component={<CiHome color="#2196F3" size={30} />}
     />

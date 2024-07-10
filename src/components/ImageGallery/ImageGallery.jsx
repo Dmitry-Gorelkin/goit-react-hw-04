@@ -4,8 +4,8 @@ import { ImageGalleryList } from './ImageGallery.styled';
 export const ImageGallery = ({ arrImage }) => {
   return (
     <ImageGalleryList>
-      {arrImage.map(({ id, webformatURL, tags }) => (
-        <ImageCard key={id} src={webformatURL} alt={tags} />
+      {arrImage.map(({ id, webformatURL, tags, largeImageURL }) => (
+        <ImageCard key={id} src={webformatURL} alt={tags} modalImage={largeImageURL} />
       ))}
     </ImageGalleryList>
   );
