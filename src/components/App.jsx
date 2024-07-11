@@ -26,10 +26,10 @@ export const App = () => {
   const [imageList, setImageList] = useState([]);
   const [status, setStatus] = useState(STATUS_PAGE.ideal);
 
-  const totalImage = imageList.length; // особенность даного API отображает только максимум 500 изображений
+  const totalImage = imageList.length; // особенность даного API отображает только максимум 500 изображений в бесплатной версии для учёбы
 
   const nextPage = () => {
-    totalImage <= 500 ? setPage(page + 1) : setStatus(STATUS_PAGE.ideal); // особеностью этого API максимальное число бесплатных катинок 500
+    totalImage <= 500 ? setPage(page + 1) : setStatus(STATUS_PAGE.ideal); // особеностью этого API максимальное число бесплатных катинок 500 в бесплатной версии для учёбы
   };
 
   const handlQuery = q => {
