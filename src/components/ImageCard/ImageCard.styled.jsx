@@ -13,6 +13,8 @@ export const ImageCardItem = styled.li`
 
   transition: box-shadow 0.3s ease;
 
+  background-color: ${p => p.theme.colors.backgroundimage};
+
   &:hover {
     box-shadow: 0 0 10px ${p => p.theme.colors.backgroundSecondary};
     border-radius: unset;
