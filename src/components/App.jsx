@@ -24,18 +24,18 @@ export const App = () => {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const [imageList, setImageList] = useState([]);
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState(STATUS_PAGE.ideal);
 
-  const totalImage = useMemo(() => imageList.length);
+  const totalImage = imageList.length; // особенность даного API отображает только максимум 500 изображений
+
+  const nextPage = () => {
+    totalImage <= 500 ? setPage(page + 1) : setStatus(STATUS_PAGE.ideal); // особеностью этого API максимальное число бесплатных катинок 500
+  };
 
   const handlQuery = q => {
     setQuery(q);
     setPage(1);
     setImageList([]);
-  };
-
-  const nextPage = () => {
-    totalImage <= 500 ? setPage(page + 1) : setStatus(STATUS_PAGE.ideal); // особеностью этого API максимальное число бесплатных катинок 500
   };
 
   useEffect(() => {
