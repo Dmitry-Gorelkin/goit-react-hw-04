@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ErrorMessage } from './ErrorMessage/ErrorMessage';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { SearchBar } from './SearchBar/SearchBar';
